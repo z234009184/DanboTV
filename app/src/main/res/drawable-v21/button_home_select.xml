@@ -8,7 +8,7 @@
                 android:state_pressed="true">
                 <shape>
                     <corners android:radius="@dimen/vs_20" />
-                    <solid android:color="?attr/color_theme_70" />
+                    <solid android:color="?attr/color_theme_80" />
                 </shape>
             </item>
             <item
@@ -22,9 +22,10 @@
             <item android:state_focused="true">
                 <shape>
                     <corners android:radius="@dimen/vs_20" />
-                    <solid android:color="?attr/color_theme_70" />
-	    <!--添加选中边框-->
-	    <stroke android:width="2mm" android:color="@android:color/white" />
+                    <solid android:color="?attr/color_theme_80" />
+                    <stroke
+                        android:width="@dimen/vs_2"
+                        android:color="@color/color_FFFFFF_90" />
                 </shape>
             </item>
             <item

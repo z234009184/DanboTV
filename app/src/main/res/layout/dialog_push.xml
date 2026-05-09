@@ -30,7 +30,7 @@
                 android:shadowDx="0"
                 android:shadowDy="0"
                 android:shadowRadius="5"
-                android:text="远端tvbox地址"
+                android:text="远端地址"
                 android:textColor="@color/color_FFFFFF"
                 android:textSize="@dimen/ts_20"
                 android:textStyle="bold" />

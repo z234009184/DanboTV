@@ -2,8 +2,11 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_focused="true">
         <shape>
-            <corners android:radius="5mm" />
-            <stroke android:width="2mm" android:color="@android:color/white" />
+            <corners android:radius="@dimen/vs_10" />
+            <solid android:color="?attr/color_theme_60" />
+            <stroke
+                android:width="@dimen/vs_2"
+                android:color="@color/color_FFFFFF_90" />
         </shape>
     </item>
     <item android:state_focused="false">

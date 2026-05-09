@@ -94,6 +94,7 @@ public class HomeActivity extends BaseActivity {
     private LinearLayout topLayout;
     private LinearLayout contentLayout;
     private TextView tvName;
+    private TextView tvLiveTop;
     private ImageView tvWifi;
     private ImageView tvFind;
     private ImageView tvStyle;
@@ -155,6 +156,7 @@ public class HomeActivity extends BaseActivity {
     private void initView() {
         this.topLayout = findViewById(R.id.topLayout);
         this.tvName = findViewById(R.id.tvName);
+        this.tvLiveTop = findViewById(R.id.tvLiveTop);
         this.tvWifi = findViewById(R.id.tvWifi);
         this.tvFind = findViewById(R.id.tvFind);
         this.tvStyle = findViewById(R.id.tvStyle);
@@ -278,6 +280,13 @@ public class HomeActivity extends BaseActivity {
                         }
                     }).start();
                 }
+            }
+        });
+        tvLiveTop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FastClickCheckUtil.check(v);
+                jumpActivity(LivePlayActivity.class);
             }
         });
         tvName.setOnLongClickListener(new View.OnLongClickListener() {

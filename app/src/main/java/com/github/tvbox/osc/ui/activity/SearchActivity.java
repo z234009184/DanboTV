@@ -236,12 +236,12 @@ public class SearchActivity extends BaseActivity {
         mGridView.setOnItemListener(new TvRecyclerView.OnItemListener() {
             @Override
             public void onItemPreSelected(TvRecyclerView parent, View itemView, int position) {
-                itemView.animate().scaleX(1.0f).scaleY(1.0f).setDuration(300).setInterpolator(new BounceInterpolator()).start();
+                itemView.animate().scaleX(1.0f).scaleY(1.0f).setDuration(450).setInterpolator(new BounceInterpolator()).start();
             }
 
             @Override
             public void onItemSelected(TvRecyclerView parent, View itemView, int position) {
-                itemView.animate().scaleX(1.15f).scaleY(1.15f).setDuration(300).setInterpolator(new BounceInterpolator()).start();
+                itemView.animate().scaleX(1.08f).scaleY(1.08f).setDuration(450).setInterpolator(new BounceInterpolator()).start();
             }
 
             @Override

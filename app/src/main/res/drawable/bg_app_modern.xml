@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <gradient
+                android:angle="90"
+                android:endColor="#000000"
+                android:startColor="#070711" />
+        </shape>
+    </item>
+    <item
+        android:gravity="top|left"
+        android:left="@dimen/vs_80"
+        android:top="@dimen/vs_40">
+        <shape android:shape="oval">
+            <size
+                android:width="@dimen/vs_2"
+                android:height="@dimen/vs_2" />
+            <solid android:color="#E6FFFFFF" />
+        </shape>
+    </item>
+    <item
+        android:gravity="top|left"
+        android:left="@dimen/vs_180"
+        android:top="@dimen/vs_120">
+        <shape android:shape="oval">
+            <size
+                android:width="@dimen/vs_1"
+                android:height="@dimen/vs_1" />
+            <solid android:color="#B3FFFFFF" />
+        </shape>
+    </item>
+    <item
+        android:gravity="top|left"
+        android:left="@dimen/vs_300"
+        android:top="@dimen/vs_70">
+        <shape android:shape="oval">
+            <size
+                android:width="@dimen/vs_2"
+                android:height="@dimen/vs_2" />
+            <solid android:color="#CCBDA7FF" />
+        </shape>
+    </item>
+    <item
+        android:gravity="top|left"
+        android:left="@dimen/vs_460"
+        android:top="@dimen/vs_180">
+        <shape android:shape="oval">
+            <size
+                android:width="@dimen/vs_1"
+                android:height="@dimen/vs_1" />
+            <solid android:color="#99FFFFFF" />
+        </shape>
+    </item>
+    <item
+        android:gravity="top|left"
+        android:left="@dimen/vs_640"
+        android:top="@dimen/vs_90">
+        <shape android:shape="oval">
+            <size
+                android:width="@dimen/vs_2"
+                android:height="@dimen/vs_2" />
+            <solid android:color="#E6FFFFFF" />
+        </shape>
+    </item>
+    <item
+        android:gravity="top|left"
+        android:left="820mm"
+        android:top="210mm">
+        <shape android:shape="oval">
+            <size
+                android:width="@dimen/vs_1"
+                android:height="@dimen/vs_1" />
+            <solid android:color="#B3D7B8FF" />
+        </shape>
+    </item>
+    <item
+        android:gravity="top|left"
+        android:left="1040mm"
+        android:top="@dimen/vs_80">
+        <shape android:shape="oval">
+            <size
+                android:width="@dimen/vs_2"
+                android:height="@dimen/vs_2" />
+            <solid android:color="#CCFFFFFF" />
+        </shape>
+    </item>
+    <item
+        android:gravity="top|left"
+        android:left="1200mm"
+        android:top="@dimen/vs_150">
+        <shape android:shape="oval">
+            <size
+                android:width="@dimen/vs_1"
+                android:height="@dimen/vs_1" />
+            <solid android:color="#99FFFFFF" />
+        </shape>
+    </item>
+    <item
+        android:gravity="top|left"
+        android:left="@dimen/vs_120"
+        android:top="360mm">
+        <shape android:shape="oval">
+            <size
+                android:width="@dimen/vs_1"
+                android:height="@dimen/vs_1" />
+            <solid android:color="#99D7B8FF" />
+        </shape>
+    </item>
+    <item
+        android:gravity="top|left"
+        android:left="360mm"
+        android:top="430mm">
+        <shape android:shape="oval">
+            <size
+                android:width="@dimen/vs_2"
+                android:height="@dimen/vs_2" />
+            <solid android:color="#B3FFFFFF" />
+        </shape>
+    </item>
+    <item
+        android:gravity="top|left"
+        android:left="560mm"
+        android:top="330mm">
+        <shape android:shape="oval">
+            <size
+                android:width="@dimen/vs_1"
+                android:height="@dimen/vs_1" />
+            <solid android:color="#80FFFFFF" />
+        </shape>
+    </item>
+    <item
+        android:gravity="top|left"
+        android:left="760mm"
+        android:top="500mm">
+        <shape android:shape="oval">
+            <size
+                android:width="@dimen/vs_2"
+                android:height="@dimen/vs_2" />
+            <solid android:color="#CCFFFFFF" />
+        </shape>
+    </item>
+    <item
+        android:gravity="top|left"
+        android:left="@dimen/vs_960"
+        android:top="390mm">
+        <shape android:shape="oval">
+            <size
+                android:width="@dimen/vs_1"
+                android:height="@dimen/vs_1" />
+            <solid android:color="#B3D7B8FF" />
+        </shape>
+    </item>
+    <item
+        android:gravity="top|left"
+        android:left="1120mm"
+        android:top="560mm">
+        <shape android:shape="oval">
+            <size
+                android:width="@dimen/vs_2"
+                android:height="@dimen/vs_2" />
+            <solid android:color="#B3FFFFFF" />
+        </shape>
+    </item>
+</layer-list>

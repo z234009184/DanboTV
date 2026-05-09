@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
-    android:layout_height="@dimen/vs_45"
+    android:layout_height="@dimen/vs_55"
     android:background="@drawable/button_home_sort_focus"
     android:clickable="true"
     android:focusable="true"
     android:focusableInTouchMode="true"
     android:orientation="horizontal"
     android:paddingLeft="@dimen/vs_20"
-    android:paddingRight="@dimen/vs_20">
+    android:paddingTop="@dimen/vs_6"
+    android:paddingRight="@dimen/vs_20"
+    android:paddingBottom="@dimen/vs_6">
 
     <TextView
         android:id="@+id/tvTitle"
@@ -17,8 +19,10 @@
         android:layout_gravity="center"
         android:focusable="false"
         android:gravity="center"
+        android:paddingTop="@dimen/vs_2"
+        android:paddingBottom="@dimen/vs_2"
         android:textColor="@color/color_FFFFFF_70"
-        android:textSize="@dimen/ts_30" />
+        android:textSize="@dimen/ts_26" />
 
     <ImageView
         android:id="@+id/tvFilter"

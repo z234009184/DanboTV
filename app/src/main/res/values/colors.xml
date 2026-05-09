@@ -2,28 +2,34 @@
 <resources>
     <color name="color_FFB800">#FF6600</color>
 
-    <!-- New Modern Dark Theme Colors -->
-    <color name="color_theme">#A68DFE</color> <!-- Neon Violet -->
-    <color name="color_theme_80">#CCA68DFE</color>
-    <color name="color_theme_70">#B3A68DFE</color>
-    <color name="color_theme_60">#99A68DFE</color>
-    <color name="color_theme_50">#80A68DFE</color>
-    <color name="color_theme_40">#66A68DFE</color>
-    <color name="color_theme_accent">#00E5FF</color> <!-- Cyan Spark -->
+    <!-- Modern TV dark theme palette -->
+    <color name="color_theme">#9B7CFF</color>
+    <color name="color_theme_90">#E69B7CFF</color>
+    <color name="color_theme_80">#CC9B7CFF</color>
+    <color name="color_theme_70">#B39B7CFF</color>
+    <color name="color_theme_60">#999B7CFF</color>
+    <color name="color_theme_50">#809B7CFF</color>
+    <color name="color_theme_40">#669B7CFF</color>
+    <color name="color_theme_30">#4D9B7CFF</color>
+    <color name="color_theme_accent">#D7B8FF</color>
 
-    <color name="bg_main">#101017</color> <!-- Deep Midnight -->
-    <color name="bg_card">#1A1A26</color> <!-- Dark Navy -->
+    <color name="bg_main">#090D14</color>
+    <color name="bg_panel">#E6131A25</color>
+    <color name="bg_panel_soft">#B8152130</color>
+    <color name="bg_card">#1B2431</color>
+    <color name="bg_card_soft">#80243140</color>
+    <color name="line_soft">#26FFFFFF</color>
 
     <!-- Main Dialog Button BG -->
-    <color name="color_theme_dark_70">#B34E4475</color>
+    <color name="color_theme_dark_70">#B34F3D88</color>
 
     <!-- EPG Colors -->
-    <color name="color_32364E">#1A1A26</color>
-    <color name="color_32364E_80">#CC1A1A26</color>
-    <color name="color_32364E_40">#661A1A26</color>
-    <color name="color_3D3D3D">#252535</color>
-    <color name="color_3D3D3D_45">#73252535</color>
-    <color name="color_3D3D3D_50">#80252535</color>
+    <color name="color_32364E">#162130</color>
+    <color name="color_32364E_80">#CC162130</color>
+    <color name="color_32364E_40">#66162130</color>
+    <color name="color_3D3D3D">#1B2431</color>
+    <color name="color_3D3D3D_45">#731B2431</color>
+    <color name="color_3D3D3D_50">#801B2431</color>
 	
     <!-- 筛选界面背景颜色 -->
     <color name="color_3D3D3D_80">#CC3D3D3D</color>
@@ -32,7 +38,7 @@
     <color name="color_0E0E0E_90">#E60E0E0E</color>
 
     <!-- Main Dialog BG -->
-    <color name="color_6A6A6A_95">#F26A6A6A</color>
+    <color name="color_6A6A6A_95">#F2162030</color>
 
     <color name="color_FFFFFF">#FFFFFF</color>
     <color name="color_FFFFFF_90">#E6FFFFFF</color>

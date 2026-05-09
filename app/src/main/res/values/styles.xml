@@ -20,67 +20,67 @@
 
     <!-- Alternative Themes -->
     <style name="NetfxTheme" parent="AppTheme.NoActionBar">
-        <item name="color_theme">#D81F26</item>
-        <item name="color_theme_80">#CCD81F26</item>
-        <item name="color_theme_70">#B3D81F26</item>
-        <item name="color_theme_60">#99D81F26</item>
-        <item name="color_theme_50">#80D81F26</item>
-        <item name="color_theme_40">#66D81F26</item>
-        <item name="color_theme_dark_70">#B38C1418</item>
+        <item name="color_theme">#9B7CFF</item>
+        <item name="color_theme_80">#CC9B7CFF</item>
+        <item name="color_theme_70">#B39B7CFF</item>
+        <item name="color_theme_60">#999B7CFF</item>
+        <item name="color_theme_50">#809B7CFF</item>
+        <item name="color_theme_40">#669B7CFF</item>
+        <item name="color_theme_dark_70">#B34F3D88</item>
     </style>
     <style name="DoraeTheme" parent="AppTheme.NoActionBar">
-        <item name="color_theme">#18A2E7</item>
-        <item name="color_theme_80">#CC18A2E7</item>
-        <item name="color_theme_70">#B318A2E7</item>
-        <item name="color_theme_60">#9918A2E7</item>
-        <item name="color_theme_50">#8018A2E7</item>
-        <item name="color_theme_40">#6618A2E7</item>
-        <item name="color_theme_dark_70">#B3106D9C</item>
+        <item name="color_theme">#B38CFF</item>
+        <item name="color_theme_80">#CCB38CFF</item>
+        <item name="color_theme_70">#B3B38CFF</item>
+        <item name="color_theme_60">#99B38CFF</item>
+        <item name="color_theme_50">#80B38CFF</item>
+        <item name="color_theme_40">#66B38CFF</item>
+        <item name="color_theme_dark_70">#B355407C</item>
     </style>
     <style name="PepsiTheme" parent="AppTheme.NoActionBar">
-        <item name="color_theme">#004B93</item>
-        <item name="color_theme_80">#CC004B93</item>
-        <item name="color_theme_70">#B3004B93</item>
-        <item name="color_theme_60">#99004B93</item>
-        <item name="color_theme_50">#80004B93</item>
-        <item name="color_theme_40">#66004B93</item>
-        <item name="color_theme_dark_70">#B3002547</item>
+        <item name="color_theme">#8EA2FF</item>
+        <item name="color_theme_80">#CC8EA2FF</item>
+        <item name="color_theme_70">#B38EA2FF</item>
+        <item name="color_theme_60">#998EA2FF</item>
+        <item name="color_theme_50">#808EA2FF</item>
+        <item name="color_theme_40">#668EA2FF</item>
+        <item name="color_theme_dark_70">#B33E4B84</item>
     </style>
     <style name="NarutoTheme" parent="AppTheme.NoActionBar">
-        <item name="color_theme">#FF7439</item>
-        <item name="color_theme_80">#CCFF7439</item>
-        <item name="color_theme_70">#B3FF7439</item>
-        <item name="color_theme_60">#99FF7439</item>
-        <item name="color_theme_50">#80FF7439</item>
-        <item name="color_theme_40">#66FF7439</item>
-        <item name="color_theme_dark_70">#B3B35127</item>
+        <item name="color_theme">#C084FC</item>
+        <item name="color_theme_80">#CCC084FC</item>
+        <item name="color_theme_70">#B3C084FC</item>
+        <item name="color_theme_60">#99C084FC</item>
+        <item name="color_theme_50">#80C084FC</item>
+        <item name="color_theme_40">#66C084FC</item>
+        <item name="color_theme_dark_70">#B35B3A7C</item>
     </style>
     <style name="MinionTheme" parent="AppTheme.NoActionBar">
-        <item name="color_theme">#FFD55E</item>
-        <item name="color_theme_80">#CCFFD55E</item>
-        <item name="color_theme_70">#B3FFD55E</item>
-        <item name="color_theme_60">#99FFD55E</item>
-        <item name="color_theme_50">#80FFD55E</item>
-        <item name="color_theme_40">#66FFD55E</item>
-        <item name="color_theme_dark_70">#B3B39542</item>
+        <item name="color_theme">#D8B4FE</item>
+        <item name="color_theme_80">#CCD8B4FE</item>
+        <item name="color_theme_70">#B3D8B4FE</item>
+        <item name="color_theme_60">#99D8B4FE</item>
+        <item name="color_theme_50">#80D8B4FE</item>
+        <item name="color_theme_40">#66D8B4FE</item>
+        <item name="color_theme_dark_70">#B3644F83</item>
     </style>
     <style name="YagamiTheme" parent="AppTheme.NoActionBar">
-        <item name="color_theme">#FF2F70</item>
-        <item name="color_theme_80">#CCFF2F70</item>
-        <item name="color_theme_70">#B3FF2F70</item>
-        <item name="color_theme_60">#99FF2F70</item>
-        <item name="color_theme_50">#80FF2F70</item>
-        <item name="color_theme_40">#66FF2F70</item>
-        <item name="color_theme_dark_70">#B3B3204E</item>
+        <item name="color_theme">#E879F9</item>
+        <item name="color_theme_80">#CCE879F9</item>
+        <item name="color_theme_70">#B3E879F9</item>
+        <item name="color_theme_60">#99E879F9</item>
+        <item name="color_theme_50">#80E879F9</item>
+        <item name="color_theme_40">#66E879F9</item>
+        <item name="color_theme_dark_70">#B36C3478</item>
     </style>
     <style name="SakuraTheme" parent="AppTheme.NoActionBar">
-        <item name="color_theme">#FD9BDB</item>
-        <item name="color_theme_80">#CCFD9BDB</item>
-        <item name="color_theme_70">#B3FD9BDB</item>
-        <item name="color_theme_60">#99FD9BDB</item>
-        <item name="color_theme_50">#80FD9BDB</item>
-        <item name="color_theme_40">#66FD9BDB</item>
-        <item name="color_theme_dark_70">#B3B06B98</item>
+        <item name="color_theme">#C99CFF</item>
+        <item name="color_theme_80">#CCC99CFF</item>
+        <item name="color_theme_70">#B3C99CFF</item>
+        <item name="color_theme_60">#99C99CFF</item>
+        <item name="color_theme_50">#80C99CFF</item>
+        <item name="color_theme_40">#66C99CFF</item>
+        <item name="color_theme_dark_70">#B3574075</item>
     </style>
 
     <!-- 自定义dialog样式 -->

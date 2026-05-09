@@ -2,16 +2,20 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_focused="true">
         <shape>
-            <corners android:radius="20mm"/>
-            <solid android:color="?attr/color_theme_50"/>
-	    <!--添加选中外边框-->
-	    <stroke android:width="2mm" android:color="@android:color/white" />
+            <corners android:radius="@dimen/vs_14" />
+            <solid android:color="?attr/color_theme_70" />
+            <stroke
+                android:width="@dimen/vs_2"
+                android:color="@color/color_FFFFFF_90" />
         </shape>
     </item>
     <item android:state_focused="false">
         <shape>
-            <corners android:radius="20mm"/>
-            <solid android:color="@android:color/transparent"/>
+            <corners android:radius="@dimen/vs_14" />
+            <solid android:color="@color/bg_card_soft" />
+            <stroke
+                android:width="@dimen/vs_1"
+                android:color="@color/line_soft" />
         </shape>
     </item>
 </selector>
