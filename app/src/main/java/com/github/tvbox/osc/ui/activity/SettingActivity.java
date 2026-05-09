@@ -1,7 +1,6 @@
 package com.github.tvbox.osc.ui.activity;
 
 import android.graphics.Color;
-import android.os.Bundle;
 import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.View;
@@ -185,9 +184,7 @@ public class SettingActivity extends BaseActivity {
                 dnsOpt != Hawk.get(HawkConfig.DOH_URL, 0)) {
             AppManager.getInstance().finishAllActivity();
             if (currentApi.equals(Hawk.get(HawkConfig.API_URL, "")) & (currentLive.equals(Hawk.get(HawkConfig.LIVE_URL, "")))) {
-                Bundle bundle = new Bundle();
-                bundle.putBoolean("useCache", true);
-                jumpActivity(HomeActivity.class, bundle);
+                jumpActivity(HomeActivity.class);
             } else {
                 jumpActivity(HomeActivity.class);
             }

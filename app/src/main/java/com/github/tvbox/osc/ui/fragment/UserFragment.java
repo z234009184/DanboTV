@@ -256,7 +256,7 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
         initHomeHotVod(homeHotVodAdapter);
 
         // Swifly: Home Style
-        if (Hawk.get(HawkConfig.HOME_REC_STYLE, false)) {
+        if (Hawk.get(HawkConfig.HOME_REC_STYLE, true)) {
             tvHotListForGrid.setVisibility(View.VISIBLE);
             tvHotListForLine.setVisibility(View.GONE);
         } else {
