@@ -101,6 +101,13 @@ public class HomeActivity extends BaseActivity {
     private ImageView tvDraw;
     private ImageView tvMenu;
     private TextView tvDate;
+    private LinearLayout tvHistory;
+    private LinearLayout tvLive;
+    private LinearLayout tvSearch;
+    private LinearLayout tvCollect;
+    private LinearLayout tvPush;
+    private LinearLayout tvDrive;
+    private LinearLayout tvSetting;
     private TvRecyclerView mGridView;
     private NoScrollViewPager mViewPager;
     private SourceViewModel sourceViewModel;
@@ -163,6 +170,13 @@ public class HomeActivity extends BaseActivity {
         this.tvDraw = findViewById(R.id.tvDrawer);
         this.tvMenu = findViewById(R.id.tvMenu);
         this.tvDate = findViewById(R.id.tvDate);
+        this.tvHistory = findViewById(R.id.tvHistory);
+        this.tvLive = findViewById(R.id.tvLive);
+        this.tvSearch = findViewById(R.id.tvSearch);
+        this.tvCollect = findViewById(R.id.tvFavorite);
+        this.tvPush = findViewById(R.id.tvPush);
+        this.tvDrive = findViewById(R.id.tvDrive);
+        this.tvSetting = findViewById(R.id.tvSetting);
         this.contentLayout = findViewById(R.id.contentLayout);
         this.mGridView = findViewById(R.id.mGridViewCategory);
         this.mViewPager = findViewById(R.id.mViewPager);
@@ -241,14 +255,7 @@ public class HomeActivity extends BaseActivity {
                         ((GridFragment) baseLazyFragment).forceRefresh();
                     }
                 }
-                if (direction != View.FOCUS_DOWN) {
-                    return false;
-                }
-                BaseLazyFragment baseLazyFragment = fragments.get(sortFocused);
-                if (!(baseLazyFragment instanceof GridFragment)) {
-                    return false;
-                }
-                return !((GridFragment) baseLazyFragment).isLoad();
+                return false;
             }
         });
         // Button : TVBOX >> Delete Cache / Longclick to Refresh Source --
@@ -354,6 +361,20 @@ public class HomeActivity extends BaseActivity {
             public boolean onLongClick(View view) {
                 startActivity(new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.fromParts("package", getPackageName(), null)));
                 return true;
+            }
+        });
+        bindShortcut(tvHistory);
+        bindShortcut(tvLive);
+        bindShortcut(tvSearch);
+        bindShortcut(tvCollect);
+        bindShortcut(tvPush);
+        bindShortcut(tvDrive);
+        bindShortcut(tvSetting);
+        tvHistory.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                homeRecf();
+                return reHome(mContext);
             }
         });
         // Button : Date >> Go into Android Date Settings --------------
@@ -747,11 +768,92 @@ public class HomeActivity extends BaseActivity {
                 if (sortFocused != currentSelected) {
                     currentSelected = sortFocused;
                     mViewPager.setCurrentItem(sortFocused, false);
-                    changeTop(sortFocused != 0);
                 }
             }
         }
     };
+
+    private final View.OnClickListener shortcutClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            HawkConfig.hotVodDelete = false;
+            FastClickCheckUtil.check(v);
+            if (v.getId() == R.id.tvLive) {
+                jumpActivity(LivePlayActivity.class);
+            } else if (v.getId() == R.id.tvSearch) {
+                jumpActivity(SearchActivity.class);
+            } else if (v.getId() == R.id.tvSetting) {
+                jumpActivity(SettingActivity.class);
+            } else if (v.getId() == R.id.tvHistory) {
+                jumpActivity(HistoryActivity.class);
+            } else if (v.getId() == R.id.tvPush) {
+                jumpActivity(PushActivity.class);
+            } else if (v.getId() == R.id.tvFavorite) {
+                jumpActivity(CollectActivity.class);
+            } else if (v.getId() == R.id.tvDrive) {
+                jumpActivity(DriveActivity.class);
+            }
+        }
+    };
+
+    private final View.OnFocusChangeListener shortcutFocusChangeListener = new View.OnFocusChangeListener() {
+        @Override
+        public void onFocusChange(View v, boolean hasFocus) {
+            if (hasFocus) {
+                v.animate().scaleX(1.05f).scaleY(1.05f).setDuration(300).setInterpolator(new BounceInterpolator()).start();
+            } else {
+                v.animate().scaleX(1.0f).scaleY(1.0f).setDuration(300).setInterpolator(new BounceInterpolator()).start();
+            }
+        }
+    };
+
+    private final View.OnKeyListener shortcutKeyListener = new View.OnKeyListener() {
+        @Override
+        public boolean onKey(View v, int keyCode, KeyEvent event) {
+            if (event.getAction() == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_DPAD_DOWN) {
+                return focusCurrentContent();
+            }
+            return false;
+        }
+    };
+
+    private void bindShortcut(View shortcut) {
+        shortcut.setOnClickListener(shortcutClickListener);
+        shortcut.setOnFocusChangeListener(shortcutFocusChangeListener);
+        shortcut.setOnKeyListener(shortcutKeyListener);
+    }
+
+    private boolean focusCurrentContent() {
+        int targetIndex = sortFocused;
+        if (targetIndex < 0 || targetIndex >= fragments.size()) {
+            targetIndex = currentSelected;
+        }
+        if (targetIndex < 0 || targetIndex >= fragments.size()) {
+            return false;
+        }
+        if (targetIndex != currentSelected) {
+            mHandler.removeCallbacks(mDataRunnable);
+            sortChange = false;
+            currentSelected = targetIndex;
+            mViewPager.setCurrentItem(targetIndex, false);
+        }
+        BaseLazyFragment fragment = fragments.get(targetIndex);
+        View root = fragment.getView();
+        if (root == null) {
+            return false;
+        }
+        View target;
+        if (fragment instanceof UserFragment) {
+            boolean showGrid = Hawk.get(HawkConfig.HOME_REC_STYLE, true);
+            target = root.findViewById(showGrid ? R.id.tvHotListForGrid : R.id.tvHotListForLine);
+            if (target == null || target.getVisibility() != View.VISIBLE) {
+                target = root.findViewById(R.id.tvHotListForGrid);
+            }
+        } else {
+            target = root.findViewById(R.id.mGridView);
+        }
+        return target != null && target.getVisibility() == View.VISIBLE && target.requestFocus();
+    }
 
     @Override
     public boolean dispatchKeyEvent(KeyEvent event) {

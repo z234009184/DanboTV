@@ -1,0 +1,7 @@
+DanboTV release signing key
+Generated: 2026-05-09 21:25:47 +0800
+Keystore: /Users/zhangguoliang/Desktop/DanboTV/dist/signing/danbotv-release.jks
+Alias: danbotv
+Store password: 77DE7E2E433543C483B0C1D543E47E3A4E6244C3C18A4DEDBF3353573381BAFD
+Key password: 77DE7E2E433543C483B0C1D543E47E3A4E6244C3C18A4DEDBF3353573381BAFD
+IMPORTANT: Keep this file and keystore private. Future APK updates must be signed with the same keystore.
