@@ -140,7 +140,7 @@ public class App extends MultiDexApplication {
         }
 
         // 首页选项
-        putDefault(HawkConfig.API_URL, "https://opengl.top/config.json"); // 默认配置地址
+        //putDefault(HawkConfig.API_URL, ""); // 默认配置地址
         putDefault(HawkConfig.HOME_SHOW_SOURCE, true);       //数据源显示: true=开启, false=关闭
         putDefault(HawkConfig.HOME_SEARCH_POSITION, false);  //按钮位置-搜索: true=上方, false=下方
         putDefault(HawkConfig.HOME_MENU_POSITION, true);     //按钮位置-设置: true=上方, false=下方
