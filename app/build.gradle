@@ -28,8 +28,18 @@ android {
         exclude 'META-INF/DEPENDENCIES'
     }
 
+    signingConfigs {
+        release {
+            storeFile file(System.getenv("ANDROID_DEBUG_KEYSTORE") ?: "${System.properties['user.home']}/.android/debug.keystore")
+            storePassword 'android'
+            keyAlias 'AndroidDebugKey'
+            keyPassword 'android'
+        }
+    }
+
     buildTypes {
         release {
+            signingConfig signingConfigs.release
             minifyEnabled true
 
         }
@@ -76,7 +86,7 @@ android {
         variant.outputs.configureEach { output ->
             def flavorNames = variant.productFlavors.collect { it.name == "normal" ? "java" : it.name }.join('-')
             // 构建自定义文件名
-            def fileName = "蛋播TV_${variant.buildType.name}-${flavorNames}.apk"
+            def fileName = "蛋蛋不语TV_${variant.buildType.name}-${flavorNames}.apk"
             outputFileName = fileName
         }
     }

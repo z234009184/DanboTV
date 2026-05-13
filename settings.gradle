@@ -1,4 +1,4 @@
-rootProject.name = "蛋播TV"
+rootProject.name = "蛋蛋不语TV"
 include ':app'
 include ':quickjs'
 include ':pyramid'
