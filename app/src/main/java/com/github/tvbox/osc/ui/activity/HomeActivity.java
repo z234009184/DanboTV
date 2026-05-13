@@ -722,11 +722,11 @@ public class HomeActivity extends BaseActivity {
         } else {
             tvFind.setVisibility(View.GONE);
         }
-        if (Hawk.get(HawkConfig.HOME_MENU_POSITION, true)) {
+        /*if (Hawk.get(HawkConfig.HOME_MENU_POSITION, true)) {
             tvMenu.setVisibility(View.VISIBLE);
         } else {
             tvMenu.setVisibility(View.GONE);
-        }
+        }*/
         mHandler.post(mRunnable);
     }
 
