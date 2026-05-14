@@ -57,11 +57,16 @@ public class JsonParallel {
 
                                 Call call = client.newCall(request);
                                 Response response = call.execute();
-                                String json = response.body().string();
-
-                                JSONObject taskResult = Utils.jsonParse(url, json);
-                                taskResult.put("jxFrom", jxName);
-                                return taskResult;
+                                try {
+                                    String json = response.body().string();
+                                    JSONObject taskResult = Utils.jsonParse(url, json);
+                                    taskResult.put("jxFrom", jxName);
+                                    return taskResult;
+                                } finally {
+                                    if (response != null) {
+                                        response.close();
+                                    }
+                                }
                             } catch (Throwable th) {
                                 // 输出日志
                                 return null;

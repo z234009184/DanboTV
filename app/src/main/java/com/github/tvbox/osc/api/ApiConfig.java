@@ -219,17 +219,23 @@ public class ApiConfig {
                     }
 
                     public String convertResponse(okhttp3.Response response) throws Throwable {
-                        String result = "";
-                        if (response.body() == null) {
-                            result = "";
-                        } else {
-                            result = FindResult(response.body().string(), configKey);
+                        try {
+                            String result = "";
+                            if (response.body() == null) {
+                                result = "";
+                            } else {
+                                result = FindResult(response.body().string(), configKey);
+                            }
+                            if (apiUrl.startsWith("clan")) {
+                                result = clanContentFix(clanToAddress(apiUrl), result);
+                            }
+                            result = fixContentPath(apiUrl, result);
+                            return result;
+                        } finally {
+                            if (response != null) {
+                                response.close();
+                            }
                         }
-                        if (apiUrl.startsWith("clan")) {
-                            result = clanContentFix(clanToAddress(apiUrl), result);
-                        }
-                        result = fixContentPath(apiUrl, result);
-                        return result;
                     }
                 });
     }
@@ -266,36 +272,42 @@ public class ApiConfig {
 
                     @Override
                     public File convertResponse(okhttp3.Response response){
-                        File cacheDir = cache.getParentFile();
-                        assert cacheDir != null;
-                        if (!cacheDir.exists()) cacheDir.mkdirs();
-                        if (cache.exists()) cache.delete();
-                        // 3. 使用 try-with-resources 确保流关闭
-                        assert response.body() != null;
-                        try (FileOutputStream fos = new FileOutputStream(cache)) {
-                            if (isJarInImg) {
-                                String respData = response.body().string();
-                                LOG.i("echo---jar Response: " + respData);
-                                byte[] imgJar = getImgJar(respData);
-                                if (imgJar == null || imgJar.length == 0) {
-                                    LOG.e("echo---Generated JAR data is empty");
-                                    callback.error("JAR data is empty");
+                        try {
+                            File cacheDir = cache.getParentFile();
+                            assert cacheDir != null;
+                            if (!cacheDir.exists()) cacheDir.mkdirs();
+                            if (cache.exists()) cache.delete();
+                            // 3. 使用 try-with-resources 确保流关闭
+                            assert response.body() != null;
+                            try (FileOutputStream fos = new FileOutputStream(cache)) {
+                                if (isJarInImg) {
+                                    String respData = response.body().string();
+                                    LOG.i("echo---jar Response: " + respData);
+                                    byte[] imgJar = getImgJar(respData);
+                                    if (imgJar == null || imgJar.length == 0) {
+                                        LOG.e("echo---Generated JAR data is empty");
+                                        callback.error("JAR data is empty");
+                                    }
+                                    fos.write(imgJar);
+                                } else {
+                                    // 使用流式传输避免内存溢出
+                                    InputStream inputStream = response.body().byteStream();
+                                    byte[] buffer = new byte[4096];
+                                    int bytesRead;
+                                    while ((bytesRead = inputStream.read(buffer)) != -1) {
+                                        fos.write(buffer, 0, bytesRead);
+                                    }
                                 }
-                                fos.write(imgJar);
-                            } else {
-                                // 使用流式传输避免内存溢出
-                                InputStream inputStream = response.body().byteStream();
-                                byte[] buffer = new byte[4096];
-                                int bytesRead;
-                                while ((bytesRead = inputStream.read(buffer)) != -1) {
-                                    fos.write(buffer, 0, bytesRead);
-                                }
+                                fos.flush();
+                            } catch (IOException e) {
+                                return null;
                             }
-                            fos.flush();
-                        } catch (IOException e) {
-                            return null;
+                            return cache;
+                        } finally {
+                            if (response != null) {
+                                response.close();
+                            }
                         }
-                        return cache;
                     }
 
                     @Override

@@ -788,7 +788,13 @@ public class PlayActivity extends BaseActivity {
 
                                     @Override
                                     public String convertResponse(okhttp3.Response response) throws Throwable {
-                                        return response.body().string();
+                                        try {
+                                            return response.body().string();
+                                        } finally {
+                                            if (response != null) {
+                                                response.close();
+                                            }
+                                        }
                                     }
 
                                     @Override
@@ -1621,10 +1627,16 @@ public class PlayActivity extends BaseActivity {
                     .execute(new AbsCallback<String>() {
                         @Override
                         public String convertResponse(okhttp3.Response response) throws Throwable {
-                            if (response.body() != null) {
-                                return response.body().string();
-                            } else {
-                                throw new IllegalStateException("网络请求错误");
+                            try {
+                                if (response.body() != null) {
+                                    return response.body().string();
+                                } else {
+                                    throw new IllegalStateException("网络请求错误");
+                                }
+                            } finally {
+                                if (response != null) {
+                                    response.close();
+                                }
                             }
                         }
 

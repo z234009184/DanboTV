@@ -202,10 +202,16 @@ public class SourceViewModel extends ViewModel {
                     .execute(new AbsCallback<String>() {
                         @Override
                         public String convertResponse(okhttp3.Response response) throws Throwable {
-                            if (response.body() != null) {
-                                return response.body().string();
-                            } else {
-                                throw new IllegalStateException("网络请求错误");
+                            try {
+                                if (response.body() != null) {
+                                    return response.body().string();
+                                } else {
+                                    throw new IllegalStateException("网络请求错误");
+                                }
+                            } finally {
+                                if (response != null) {
+                                    response.close();
+                                }
                             }
                         }
 
@@ -255,10 +261,16 @@ public class SourceViewModel extends ViewModel {
                     .execute(new AbsCallback<String>() {
                         @Override
                         public String convertResponse(okhttp3.Response response) throws Throwable {
-                            if (response.body() != null) {
-                                return response.body().string();
-                            } else {
-                                throw new IllegalStateException("网络请求错误");
+                            try {
+                                if (response.body() != null) {
+                                    return response.body().string();
+                                } else {
+                                    throw new IllegalStateException("网络请求错误");
+                                }
+                            } finally {
+                                if (response != null) {
+                                    response.close();
+                                }
                             }
                         }
 
@@ -332,10 +344,16 @@ public class SourceViewModel extends ViewModel {
 
                         @Override
                         public String convertResponse(okhttp3.Response response) throws Throwable {
-                            if (response.body() != null) {
-                                return response.body().string();
-                            } else {
-                                throw new IllegalStateException("网络请求错误");
+                            try {
+                                if (response.body() != null) {
+                                    return response.body().string();
+                                } else {
+                                    throw new IllegalStateException("网络请求错误");
+                                }
+                            } finally {
+                                if (response != null) {
+                                    response.close();
+                                }
                             }
                         }
 
@@ -377,10 +395,16 @@ public class SourceViewModel extends ViewModel {
                     .execute(new AbsCallback<String>() {
                         @Override
                         public String convertResponse(okhttp3.Response response) throws Throwable {
-                            if (response.body() != null) {
-                                return response.body().string();
-                            } else {
-                                throw new IllegalStateException("网络请求错误");
+                            try {
+                                if (response.body() != null) {
+                                    return response.body().string();
+                                } else {
+                                    throw new IllegalStateException("网络请求错误");
+                                }
+                            } finally {
+                                if (response != null) {
+                                    response.close();
+                                }
                             }
                         }
 
@@ -458,10 +482,16 @@ public class SourceViewModel extends ViewModel {
 
                         @Override
                         public String convertResponse(okhttp3.Response response) throws Throwable {
-                            if (response.body() != null) {
-                                return response.body().string();
-                            } else {
-                                throw new IllegalStateException("网络请求错误");
+                            try {
+                                if (response.body() != null) {
+                                    return response.body().string();
+                                } else {
+                                    throw new IllegalStateException("网络请求错误");
+                                }
+                            } finally {
+                                if (response != null) {
+                                    response.close();
+                                }
                             }
                         }
 
@@ -566,10 +596,16 @@ public class SourceViewModel extends ViewModel {
 
                         @Override
                         public String convertResponse(okhttp3.Response response) throws Throwable {
-                            if (response.body() != null) {
-                                return response.body().string();
-                            } else {
-                                throw new IllegalStateException("网络请求错误");
+                            try {
+                                if (response.body() != null) {
+                                    return response.body().string();
+                                } else {
+                                    throw new IllegalStateException("网络请求错误");
+                                }
+                            } finally {
+                                if (response != null) {
+                                    response.close();
+                                }
                             }
                         }
 
@@ -621,10 +657,16 @@ public class SourceViewModel extends ViewModel {
                     .execute(new AbsCallback<String>() {
                         @Override
                         public String convertResponse(okhttp3.Response response) throws Throwable {
-                            if (response.body() != null) {
-                                return response.body().string();
-                            } else {
-                                throw new IllegalStateException("网络请求错误");
+                            try {
+                                if (response.body() != null) {
+                                    return response.body().string();
+                                } else {
+                                    throw new IllegalStateException("网络请求错误");
+                                }
+                            } finally {
+                                if (response != null) {
+                                    response.close();
+                                }
                             }
                         }
 
@@ -655,10 +697,16 @@ public class SourceViewModel extends ViewModel {
                     .execute(new AbsCallback<String>() {
                         @Override
                         public String convertResponse(okhttp3.Response response) throws Throwable {
-                            if (response.body() != null) {
-                                return response.body().string();
-                            } else {
-                                throw new IllegalStateException("网络请求错误");
+                            try {
+                                if (response.body() != null) {
+                                    return response.body().string();
+                                } else {
+                                    throw new IllegalStateException("网络请求错误");
+                                }
+                            } finally {
+                                if (response != null) {
+                                    response.close();
+                                }
                             }
                         }
 
@@ -700,10 +748,16 @@ public class SourceViewModel extends ViewModel {
                     .execute(new AbsCallback<String>() {
                         @Override
                         public String convertResponse(okhttp3.Response response) throws Throwable {
-                            if (response.body() != null) {
-                                return response.body().string();
-                            } else {
-                                throw new IllegalStateException("网络请求错误");
+                            try {
+                                if (response.body() != null) {
+                                    return response.body().string();
+                                } else {
+                                    throw new IllegalStateException("网络请求错误");
+                                }
+                            } finally {
+                                if (response != null) {
+                                    response.close();
+                                }
                             }
                         }
 
@@ -734,10 +788,16 @@ public class SourceViewModel extends ViewModel {
                     .execute(new AbsCallback<String>() {
                         @Override
                         public String convertResponse(okhttp3.Response response) throws Throwable {
-                            if (response.body() != null) {
-                                return response.body().string();
-                            } else {
-                                throw new IllegalStateException("网络请求错误");
+                            try {
+                                if (response.body() != null) {
+                                    return response.body().string();
+                                } else {
+                                    throw new IllegalStateException("网络请求错误");
+                                }
+                            } finally {
+                                if (response != null) {
+                                    response.close();
+                                }
                             }
                         }
 
@@ -1019,10 +1079,16 @@ public class SourceViewModel extends ViewModel {
                                                     .execute(new AbsCallback<String>() {
                                                         @Override
                                                         public String convertResponse(okhttp3.Response response) throws Throwable {
-                                                            if (response.body() != null) {
-                                                                return response.body().string();
-                                                            } else {
-                                                                return "";
+                                                            try {
+                                                                if (response.body() != null) {
+                                                                    return response.body().string();
+                                                                } else {
+                                                                    return "";
+                                                                }
+                                                            } finally {
+                                                                if (response != null) {
+                                                                    response.close();
+                                                                }
                                                             }
                                                         }
 

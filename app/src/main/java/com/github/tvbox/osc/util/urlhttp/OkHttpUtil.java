@@ -29,6 +29,10 @@ public class OkHttpUtil {
                     return response.body().string();
                 } catch (IOException e) {
                     return "";
+                } finally {
+                    if (response != null) {
+                        response.close();
+                    }
                 }
             }
 
@@ -103,7 +107,12 @@ public class OkHttpUtil {
 
     public static String get(String str) {
         try {
-            return OkGo.<String>get(str).headers("User-Agent", UA.random()).execute().body().string();
+            Response response = OkGo.<String>get(str).headers("User-Agent", UA.random()).execute();
+            try {
+                return response.body() != null ? response.body().string() : "";
+            } finally {
+                response.close();
+            }
         } catch (IOException e) {
             return "";
         }

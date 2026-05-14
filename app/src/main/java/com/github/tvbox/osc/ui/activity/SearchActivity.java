@@ -603,7 +603,13 @@ public class SearchActivity extends BaseActivity {
 
                     @Override
                     public String convertResponse(okhttp3.Response response) throws Throwable {
-                        return response.body().string();
+                        try {
+                            return response.body().string();
+                        } finally {
+                            if (response != null) {
+                                response.close();
+                            }
+                        }
                     }
                 });
     }
@@ -663,7 +669,13 @@ public class SearchActivity extends BaseActivity {
 
                     @Override
                     public String convertResponse(okhttp3.Response response) throws Throwable {
-                        return response.body().string();
+                        try {
+                            return response.body().string();
+                        } finally {
+                            if (response != null) {
+                                response.close();
+                            }
+                        }
                     }
                 });
     }

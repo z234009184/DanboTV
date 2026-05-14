@@ -50,6 +50,13 @@ public class Connect {
             return jsObject;
         } catch (Exception e) {
             return error(ctx);
+        } finally {
+            if (res != null) {
+                try {
+                    res.close();
+                } catch (Exception ignored) {
+                }
+            }
         }
     }
 

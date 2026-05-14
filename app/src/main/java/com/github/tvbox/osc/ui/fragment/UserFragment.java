@@ -249,7 +249,13 @@ public class UserFragment extends BaseLazyFragment {
 
                 @Override
                 public String convertResponse(okhttp3.Response response) throws Throwable {
-                    return response.body().string();
+                    try {
+                        return response.body().string();
+                    } finally {
+                        if (response != null) {
+                            response.close();
+                        }
+                    }
                 }
             });
         } catch (Throwable th) {

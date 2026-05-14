@@ -83,7 +83,13 @@ public class OkHttp {
 
     public static String string(String url) {
         try {
-            return url.startsWith("http") ? newCall(url).execute().body().string() : "";
+            if (!url.startsWith("http")) return "";
+            okhttp3.Response response = newCall(url).execute();
+            try {
+                return response.body() != null ? response.body().string() : "";
+            } finally {
+                response.close();
+            }
         } catch (Exception e) {
             return "";
         }

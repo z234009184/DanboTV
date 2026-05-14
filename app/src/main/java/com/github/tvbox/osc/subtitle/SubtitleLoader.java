@@ -146,44 +146,50 @@ public class SubtitleLoader {
                 .headers("Referer", referer)
                 .headers("User-Agent", ua)
                 .execute();
-        byte[] bytes = response.body().bytes();
-        UniversalDetector detector = new UniversalDetector(null);
-        detector.handleData(bytes, 0, bytes.length);
-        detector.dataEnd();
-        String encoding = detector.getDetectedCharset();
-        if (TextUtils.isEmpty(encoding)) encoding = "UTF-8";
-        String content = new String(bytes, encoding);
-        InputStream is = new ByteArrayInputStream(content.getBytes());
-        String filename = "";
-        String contentDispostion = response.header("content-disposition", "");
-        String[] cd = contentDispostion.split(";");
-        if (cd.length > 1) {
-            String filenameInfo = cd[1];
-            filenameInfo = filenameInfo.trim();
-            if (filenameInfo.startsWith("filename=")) {
-                filename = filenameInfo.replace("filename=", "");
-                filename = filename.replace("\"", "");
-            } else if (filenameInfo.startsWith("filename*=")) {
-                filename = filenameInfo.substring(filenameInfo.lastIndexOf("''")+2);
+        try {
+            byte[] bytes = response.body().bytes();
+            UniversalDetector detector = new UniversalDetector(null);
+            detector.handleData(bytes, 0, bytes.length);
+            detector.dataEnd();
+            String encoding = detector.getDetectedCharset();
+            if (TextUtils.isEmpty(encoding)) encoding = "UTF-8";
+            String content = new String(bytes, encoding);
+            InputStream is = new ByteArrayInputStream(content.getBytes());
+            String filename = "";
+            String contentDispostion = response.header("content-disposition", "");
+            String[] cd = contentDispostion.split(";");
+            if (cd.length > 1) {
+                String filenameInfo = cd[1];
+                filenameInfo = filenameInfo.trim();
+                if (filenameInfo.startsWith("filename=")) {
+                    filename = filenameInfo.replace("filename=", "");
+                    filename = filename.replace("\"", "");
+                } else if (filenameInfo.startsWith("filename*=")) {
+                    filename = filenameInfo.substring(filenameInfo.lastIndexOf("''")+2);
+                }
+                filename = filename.trim();
+                filename = URLDecoder.decode(filename);
             }
-            filename = filename.trim();
-            filename = URLDecoder.decode(filename);
+            String filePath = filename;
+            if (filename == null || filename.length() < 1) {
+                Uri uri = Uri.parse(remoteSubtitlePath);
+                filePath = uri.getPath();
+            }
+            if (!filePath.contains(".") && remoteSubtitlePath.contains("#")) {
+                filePath = remoteSubtitlePath.split("#")[1];
+                filePath = URLDecoder.decode(filePath);
+            }
+            SubtitleLoadSuccessResult subtitleLoadSuccessResult = new SubtitleLoadSuccessResult();
+            subtitleLoadSuccessResult.timedTextObject = loadAndParse(is, filePath);
+            subtitleLoadSuccessResult.fileName = filePath;
+            subtitleLoadSuccessResult.content = content;
+            subtitleLoadSuccessResult.subtitlePath = remoteSubtitlePath;
+            return subtitleLoadSuccessResult;
+        } finally {
+            if (response != null) {
+                response.close();
+            }
         }
-        String filePath = filename;
-        if (filename == null || filename.length() < 1) {
-            Uri uri = Uri.parse(remoteSubtitlePath);
-            filePath = uri.getPath();
-        }
-        if (!filePath.contains(".") && remoteSubtitlePath.contains("#")) {
-            filePath = remoteSubtitlePath.split("#")[1];
-            filePath = URLDecoder.decode(filePath);
-        }
-        SubtitleLoadSuccessResult subtitleLoadSuccessResult = new SubtitleLoadSuccessResult();
-        subtitleLoadSuccessResult.timedTextObject = loadAndParse(is, filePath);
-        subtitleLoadSuccessResult.fileName = filePath;
-        subtitleLoadSuccessResult.content = content;
-        subtitleLoadSuccessResult.subtitlePath = remoteSubtitlePath;
-        return subtitleLoadSuccessResult;
     }
 
     private static SubtitleLoadSuccessResult loadFromLocal(final String localSubtitlePath)

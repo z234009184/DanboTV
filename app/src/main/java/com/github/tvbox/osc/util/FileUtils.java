@@ -288,10 +288,16 @@ public class FileUtils {
             } else {
                 response =OkGo.<String>get(str).headers("User-Agent", str.startsWith("https://gitcode.net/") ? UA.random() : "okhttp/3.15").execute();
             }
-            if (response.isSuccessful() && response.body() != null){
-                return new String(response.body().bytes(), "UTF-8");
-            } else {
-                return "";
+            try {
+                if (response.isSuccessful() && response.body() != null){
+                    return new String(response.body().bytes(), "UTF-8");
+                } else {
+                    return "";
+                }
+            } finally {
+                if (response != null) {
+                    response.close();
+                }
             }
         } catch (IOException e) {
             return "";

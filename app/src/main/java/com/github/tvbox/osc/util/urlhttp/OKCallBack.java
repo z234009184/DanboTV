@@ -54,6 +54,10 @@ public abstract class OKCallBack<T> {
                 return response.body().string();
             } catch (IOException e) {
                 return "";
+            } finally {
+                if (response != null) {
+                    response.close();
+                }
             }
         }
     }

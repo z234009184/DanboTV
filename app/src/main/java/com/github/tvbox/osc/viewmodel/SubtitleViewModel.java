@@ -112,7 +112,13 @@ public class SubtitleViewModel extends ViewModel {
 
                         @Override
                         public String convertResponse(Response response) throws Throwable {
-                            return response.body().string();
+                            try {
+                                return response.body().string();
+                            } finally {
+                                if (response != null) {
+                                    response.close();
+                                }
+                            }
                         }
 
                         @Override

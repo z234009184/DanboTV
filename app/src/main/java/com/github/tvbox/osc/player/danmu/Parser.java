@@ -39,7 +39,14 @@ public class Parser extends BaseDanmakuParser {
         if (path.startsWith("file")) return FileUtils.read(path);
         if (path.startsWith("http")) {
             try {
-                return OkGo.<String>get(path).execute().body().string();
+                okhttp3.Response response = OkGo.<String>get(path).execute();
+                try {
+                    if (response.body() != null) {
+                        return response.body().string();
+                    }
+                } finally {
+                    response.close();
+                }
             } catch (Throwable ignored) {
             }
         }
